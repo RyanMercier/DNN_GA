@@ -105,6 +105,16 @@ def plot_accuracy(best_accuracies, avg_accuracies, filename="accuracy.png"):
     plt.grid(True)
     plt.savefig(filename)
 
+def plot_loss(loss, filename="loss.png"):
+    plt.figure(figsize=(10, 6))
+    plt.plot(loss, label="Loss", marker="o")
+    plt.xlabel("Generation")
+    plt.ylabel("Loss")
+    plt.title("Loss Over Generations")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(filename)
+
 def plot_fitness(best_fitness, avg_fitness, filename="fitness.png"):
     plt.figure(figsize=(10, 6))
     plt.plot(best_fitness, label="Best Fitness", marker="o")
