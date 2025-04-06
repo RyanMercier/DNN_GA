@@ -105,6 +105,17 @@ def plot_accuracy(best_accuracies, avg_accuracies, filename="accuracy.png"):
     plt.grid(True)
     plt.savefig(filename)
 
+def plot_fitness(best_fitness, avg_fitness, filename="fitness.png"):
+    plt.figure(figsize=(10, 6))
+    plt.plot(best_fitness, label="Best Fitness", marker="o")
+    plt.plot(avg_fitness, label="Average Fitness", marker="x")
+    plt.xlabel("Generation")
+    plt.ylabel("Fitness")
+    plt.title("Best and Average Fitness Over Generations")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(filename)
+
 # Function to plot total number of dendrites in the best network over epochs
 def plot_dendrites_over_epochs(dendrite_counts_over_epochs):
     plt.figure(figsize=(10, 6))
@@ -507,6 +518,6 @@ class GeneticAlgorithm:
         # best_model.load_state_dict(self.best_model_state["state_dict"])
         # visualize_network(best_model, generations)
 
-ga = GeneticAlgorithm(pop_size=2, input_size=784, hidden_size=128, 
+ga = GeneticAlgorithm(pop_size=50, input_size=784, hidden_size=128, 
                      output_size=10, num_hidden_layers=1, max_dendrites=10)
-ga.evolve(generations=2)
+ga.evolve(generations=20)
